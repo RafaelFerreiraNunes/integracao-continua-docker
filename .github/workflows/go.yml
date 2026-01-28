@@ -30,6 +30,13 @@ jobs:
         version: v1.59
         args: controllers/ database/ models/ routes/
 
+    - name: Aguarda Postgres
+      run: |
+        until docker exec $(docker ps -qf "name=postgres") pg_isready -h 127.0.0.1 -p 5432; do
+          echo "Aguardando Postgres..."
+          sleep 2
+        done
+
     - name: Test
       run: DB_HOST=127.0.0.1 DB_PASSWORD=root DB_USER=root DB_NAME=root DB_PORT=5432 go test -v main_test.go
 
