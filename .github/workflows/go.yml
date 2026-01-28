@@ -31,7 +31,7 @@ jobs:
         args: controllers/ database/ models/ routes/
 
     - name: Test
-      run: DB_HOST=localhost DB_PASSWORD=root DB_USER=root DB_NAME=root DB_PORT=5432 go test -v main_test.go
+      run: DB_HOST=127.0.0.1 DB_PASSWORD=root DB_USER=root DB_NAME=root DB_PORT=5432 go test -v main_test.go
 
     - name: Build
       run: go build main.go
