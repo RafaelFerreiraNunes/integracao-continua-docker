@@ -11,7 +11,9 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
 
   app:
-    build: .
+    build:
+      context: .
+      target: production
     ports:
       - 8080:8080
     depends_on:
