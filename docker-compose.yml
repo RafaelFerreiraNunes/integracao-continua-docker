@@ -29,3 +29,4 @@ services:
       - DB_PASSWORD=root
       - DB_NAME=root
       - DB_PORT=5432
+      
